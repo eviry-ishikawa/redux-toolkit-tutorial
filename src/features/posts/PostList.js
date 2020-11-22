@@ -1,5 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 export const PostList = () => {
   const posts = useSelector(state => state.posts)
@@ -8,7 +9,7 @@ export const PostList = () => {
     <div>
       {posts.map((post) => 
         <article key={post.id}>
-          <h3>{post.title}</h3>
+          <Link to={`/posts/${post.id}`}>{post.title}</Link>
           <p>{post.content.substring(0,100)}</p>
         </article>
       )}
