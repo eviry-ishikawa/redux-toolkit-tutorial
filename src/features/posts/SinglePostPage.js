@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 export const SinglePostPage = () => {
   const { id: postId } = useParams()
@@ -23,6 +23,7 @@ export const SinglePostPage = () => {
       <h2>{post.title}</h2>
       <p>{post.content}</p>
       </article>
+      <Link to={`/editPost/${postId}`}>Edit Post</Link>
     </section>
   )
 }
