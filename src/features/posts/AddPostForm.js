@@ -37,6 +37,7 @@ export  function AddPostForm() {
 
   return (
     <div>
+      <h1>Add Post</h1>
       <section>
         <form>
           <label>Post Title!</label>

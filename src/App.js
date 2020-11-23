@@ -23,8 +23,8 @@ function App() {
             path="/"
             render={() => (
               <React.Fragment>
-                <PostList/>
                 <AddPostForm/>
+                <PostList/>
               </React.Fragment>)}
           />
           <Route exact path="/posts/:id" component={SinglePostPage} />

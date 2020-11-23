@@ -1,8 +1,8 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit"
 
 const initialState = [
-  { id: "1", title: "First Post!", content: "Hello!", user:"0", date:"2020-11-20T02:06:06.764Z",reactions: { thumbsUp:0, hooray: 0 } },
-  { id: "2", title: "Second Post", content:"more text", user:"1", date: "2020-11-21T02:06:06.764Z",reactions: { thumbsUp:0, hooray: 0 } }
+  { id: "1", title: "First Post!", content: "Hello!", user:"0", date:"2020-11-20T02:06:06.764Z",reactions: { thumbsUp:0, hooray: 0,heart:0,rocket:0,eyes:0 } },
+  { id: "2", title: "Second Post", content:"more text", user:"1", date: "2020-11-21T02:06:06.764Z",reactions: { thumbsUp:0, hooray: 0,heart:0,rocket:0,eyes:0 } }
 ]
 
 const postsSlice = createSlice({
@@ -21,7 +21,7 @@ const postsSlice = createSlice({
             content,
             user: userId,
             date: new Date().toISOString(),
-            reactions: { thumbsUp:0, hooray: 0 }
+            reactions: { thumbsUp:0, hooray: 0,heart:0,rocket:0,eyes:0}
           }
         }
       }

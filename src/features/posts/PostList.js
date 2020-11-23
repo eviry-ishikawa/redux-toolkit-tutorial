@@ -12,21 +12,29 @@ export const PostList = () => {
 
   return (
     <div>
-      {orderedPosts.map((post) => 
-        <article key={post.id}>
-          <Link to={`/posts/${post.id}`}>{post.title}</Link>
-          <p>
-            Author:<PostAuthor userId={post.user}/>
-          </p>
-          <p>{post.content.substring(0,100)}</p>
-          <p>
-            <TimeAgo timestamp={post.date}/>
-          </p>
-          <p>
-            <ReactionButton post={post}/>
-          </p>
-        </article>
-      )}
+      <h1>Posts</h1>
+      <section className="posts-list">
+        {orderedPosts.map((post) => 
+          <article key={post.id} className="post-excerpt">
+              <h1>
+                {post.title}
+              </h1>
+            <p>
+              Author:<PostAuthor userId={post.user}/>
+            </p>
+            <p>{post.content.substring(0,100)}</p>
+            <p>
+              <TimeAgo timestamp={post.date}/>
+            </p>
+            <Link to={`/posts/${post.id}`} className="button muted-button">
+              View Post
+            </Link>
+            <p>
+              <ReactionButton post={post}/>
+            </p>
+          </article>
+        )}
+      </section>
     </div>
   )
   
