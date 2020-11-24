@@ -2,18 +2,19 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { PostAuthor } from "./PostAuthor"
+import { selectAllPosts } from "./postsSlice"
 import { ReactionButton } from "./ReactionButtons"
 import { TimeAgo } from "./TimeAgo"
 
 export const PostList = () => {
-  const posts = useSelector(state => state.posts)
+  const posts = useSelector(selectAllPosts)
 
   const orderedPosts = posts.slice().sort((a,b) => b.date.localeCompare(a.date))
 
   return (
     <div>
-      <h1>Posts</h1>
       <section className="posts-list">
+      <h1>Posts</h1>
         {orderedPosts.map((post) => 
           <article key={post.id} className="post-excerpt">
               <h1>

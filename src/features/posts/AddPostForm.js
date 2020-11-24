@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { postAdded } from './postsSlice'
-import { nanoid } from '@reduxjs/toolkit'
 
 
 export  function AddPostForm() {
@@ -37,8 +36,8 @@ export  function AddPostForm() {
 
   return (
     <div>
-      <h1>Add Post</h1>
       <section>
+      <h1>Add Post</h1>
         <form>
           <label>Post Title!</label>
           <input
