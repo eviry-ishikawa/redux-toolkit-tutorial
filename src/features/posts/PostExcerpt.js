@@ -1,10 +1,13 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { PostAuthor } from "./PostAuthor"
+import { selectPostById } from "./postsSlice"
 import { ReactionButton } from "./ReactionButtons"
 import { TimeAgo } from "./TimeAgo"
 
-export let PostExcerpt = ({post}) => {
+export let PostExcerpt = ({postId}) => {
+  const post = useSelector(state => selectPostById(state, postId))
   return (
     <div>
       <section className="posts-list">
