@@ -4,7 +4,7 @@ import { PostAuthor } from "./PostAuthor"
 import { ReactionButton } from "./ReactionButtons"
 import { TimeAgo } from "./TimeAgo"
 
-export const PostExcerpt = ({post}) => {
+export let PostExcerpt = ({post}) => {
   return (
     <div>
       <section className="posts-list">
@@ -29,3 +29,5 @@ export const PostExcerpt = ({post}) => {
       </section>
     </div>
   )}
+
+PostExcerpt = React.memo(PostExcerpt)
