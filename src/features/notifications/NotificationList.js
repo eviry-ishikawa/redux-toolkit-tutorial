@@ -1,12 +1,18 @@
 import { formatDistance, formatDistanceToNow, parseISO } from 'date-fns'
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectAllUsers } from '../users/usersSlice'
-import { selectAllNotifications } from './notificationsSlice'
+import { allNotificationsRead, selectAllNotifications } from './notificationsSlice'
+import classnames from "classnames"
 
 export  function NotificationList() {
+  const dispatch = useDispatch()
   const notifications = useSelector(selectAllNotifications)
   const users = useSelector(selectAllUsers)
+
+  useEffect(() => {
+    dispatch(allNotificationsRead())
+  })
 
   const renderedNotifications = notifications.map((notification) => {
     const date = parseISO(notification.date)
@@ -14,8 +20,13 @@ export  function NotificationList() {
     const user = users.find((user) => user.id === notification.user) || {
       name: "Unkonw User"
     }
+
+    const notificationClassname = classnames("notification", {
+      new: notification.isNew
+    })
+
     return(
-      <div key={notification.id}>
+      <div key={notification.id} className={notificationClassname}>
         <div>
           <b>{user.name}</b> {notification.message}
         </div>
