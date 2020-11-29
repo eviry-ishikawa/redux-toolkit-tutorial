@@ -20,5 +20,5 @@ export const ReactionButton = ({ post }) => {
       </button>
     )
   })
-  return <div>{reactionButtons}</div>
+  return <>{reactionButtons}</>
 }
